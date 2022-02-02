@@ -1,0 +1,81 @@
+# Questions
+
+In the following test you will need to provide answers for the following 3 questions.
+
+- The questions must be uploaded to and provided by: https://codesandbox.io/s/
+
+<br>
+
+1. Write a function in Javascript that receives as a parameter an array of changes done to an object since it was created, and returns the current state of the object after all the changes.
+
+   - The function receives the changes in this format:
+
+   ```js
+   const initialState = {
+   	id: 1,
+   	username: "user",
+   	password: "password",
+   	items: [{ id: 1, name: "item1" }],
+   	address: { country: "country", city: "city", zip: "zip" },
+   };
+   const changes = [
+   	{
+   		phone: "123456789",
+   		user: "new user",
+   		password: "123456",
+   		items: [
+   			{ id: 1, name: "item1" },
+   			{ id: 2, name: "item2" },
+   		],
+   		address: { country: "USA" },
+   	},
+   	{
+   		email: "example@gmail.com",
+   		username: "example",
+   		address: { city: "New York" },
+   	},
+   	{ phone: "987654321", address: { zip: "12345" } },
+   ];
+   ```
+
+   - Given the above example the result would be:
+
+   ```js
+   const calculatedState = {
+      id: 1,
+      username: 'example',
+      password: '123456',
+      items: [{ id: 1, name: 'item1' }, { id: 2, name: 'item2' }],
+      address: { country: 'USA', city: 'New York', zip: '12345' },
+      phone: '987654321',
+      user: 'new user',
+      email: 'example@gmail.com'
+   }
+   ```
+
+   - Implement the function in the following way:
+
+   ```js
+   const calculateState = (initialState, changes) => {
+   	// Implement solution here
+   };
+   ```
+
+   - You are allowed to write more than one function to implement the solution (but calculateState must return the correct result)
+   - It is recommended to use Lodash for this task.
+
+2. Write a single file Vue component (.vue file) that will receive as a prop an array of objects called "countries", the object contains 2 key value pairs: countryName and countryFlag, the component will render a button that when clicked, will open a menu that will allow to scroll down the list of the countries items you received as a prop.
+   (Every row in the list will display the country and from the right of it the image of the country flag)
+
+   - The countries will be fetched with an API call from: 'https://documenter.getpostman.com/view/1134062/T1LJjU52#intro'. (find the endpoint that will provide you the necessary details)
+   - The component must render the countries in chunks of 20 countries every time you scroll down to the end of the current chunk, which means that when you scroll down the list, as you get close to the end of the current chunk you render the next 20 countries.
+   - When you render the next 20 countries, the previous chunks should not disappear, and when you scroll back they should be rendered already, which means that when you scrolled to the end of the countries you received as a prop the entire list should be rendered.
+   - You are allowed to use Vuetify for this component, but you are not allowed to use the vuetify component: 'v-virtual-scroll'.
+   - You are not allowed to use any external NPM library to solve this problem.
+   - Design the component with good UI/UX.
+
+3. Write a single file Vue component which consists of an 16 X 16 grid which has inside of it a 1 X 1 square, implement drag and drop + resize abilities for that square so that it's movable and resizable inside the grid. (every time you resize the square it needs to move differently inside the 16 x 16 grid depending on the size of the resized square)
+
+   - You are allowed to use vuetify for this component.
+   - You are not allowed to use any external NPM library to solve this problem.
+   - Design the component with good UI/UX.

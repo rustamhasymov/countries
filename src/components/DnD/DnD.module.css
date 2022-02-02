@@ -1,0 +1,32 @@
+.wrapper {
+  display: flex;
+  width: 512px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.square {
+  width: 32px;
+  height: 32px;
+  border: 1px solid;
+  background: red;
+  cursor: grab;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.square[data-active="active"] {
+  color: white;
+  background: blue;
+}
+
+.drag-square {
+  color: white;
+  background: blue;
+}
+
+.active {
+  color: white;
+  background: blue;
+}
